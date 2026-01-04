@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audu Joel Limited | Logistics Made Easy</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(180deg, #0c0f14, #111827);
+      color: #f9fafb;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #22c55e;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(12, 15, 20, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1.5rem 8%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #22c55e;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+    }
+
+    /* Sections */
+    section {
+      padding: 6rem 8%;
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #d1d5db;
+      max-width: 900px;
+    }
+
+    /* Glass Effect */
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4),
+                  0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero span {
+      color: #22c55e;
+      font-weight: 600;
+    }
+
+    /* Scroll Images */
+    .scroll-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+
+    .image-card {
+      padding: 1.2rem;
+      transform: translateY(60px) scale(0.9);
+      opacity: 0;
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                  opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .image-card .image-wrapper {
+      width: 100%;
+      height: 250px;
+      border-radius: 14px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 600;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .image-card p {
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .image-card.reveal.active {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    /* How We Help */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .step {
+      padding: 2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .step:hover {
+      transform: translateY(-5px);
+    }
+
+    /* FAQ */
+    .faq-item {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item h4 {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #f9fafb;
+    }
+
+    /* Footer */
+    footer {
+      background: #020617;
+      padding: 4rem 8%;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-grid h4 {
+      margin-bottom: 1rem;
+      color: #f9fafb;
+    }
+
+    .footer-grid p {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .footer-bottom {
+      margin-top: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.5rem;
+      font-size: 0.85rem;
+      color: #9ca3af;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 5%;
+      }
+
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      section {
+        padding: 4rem 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="logo">Audu Joel Limited</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Logistics Made Easy — <span>From Your Farm to Any Destination Worldwide</span></h1>
+    <p>
+      At <strong>Audu Joel Limited</strong>, we understand that moving your products requires more than transportation.
+      It requires trust, speed, and a team that values every shipment.
+    </p>
+  </div>
+</section>
+
+<!-- STORY / CROPS -->
+<section>
+  <h2>From Crops to Global Markets</h2>
+  <p>
+    We specialize in agricultural and business logistics, supporting farmers, agro-exporters,
+    and business owners with a transparent and reliable logistics process.
+  </p>
+
+  <div class="scroll-section">
+    <div class="image-card glass reveal">
+      <div class="image-wrapper" style="background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);">
+        <img src="assets/images/cocoa.jpg" alt="Cocoa logistics" onerror="this.style.display='none';">
+        <div class="image-placeholder">Cocoa Logistics</div>
+      </div>
+      <p>Cocoa crops carefully handled and prepared for export.</p>
+    </div>
+
+    <div class="image-card glass reveal">
+      <div class="image-wrapper" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);">
+        <img src="assets/images/maize.jpg" alt="Maize processing" onerror="this.style.display='none';">
+        <div class="image-placeholder">Maize Processing</div>
+      </div>
+      <p>Structured packaging and verification of grains and produce.</p>
+    </div>
+
+    <div class="image-card glass reveal">
+      <div class="image-wrapper" style="background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);">
+        <img src="assets/images/warehouse.jpg" alt="Warehouse logistics" onerror="this.style.display='none';">
+        <div class="image-placeholder">Warehouse Logistics</div>
+      </div>
+      <p>Secure storage and documentation for smooth global clearance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE HELP -->
+<section id="services">
+  <h2>How We Help You Move with Confidence</h2>
+
+  <div class="steps">
+    <div class="step glass">
+      <h3>Pickup & Verification</h3>
+      <p>We come directly to your farm, warehouse, or business location and verify your products.</p>
+    </div>
+
+    <div class="step glass">
+      <h3>Processing & Documentation</h3>
+      <p>We manage waybills, export papers, and compliance documentation.</p>
+    </div>
+
+    <div class="step glass">
+      <h3>Secure Transport</h3>
+      <p>Safe delivery via road or air with real-time coordination.</p>
+    </div>
+
+    <div class="step glass">
+      <h3>Customs Clearance & Handling</h3>
+      <p>No stress, no back-and-forth. We handle clearance end-to-end.</p>
+    </div>
+
+    <div class="step glass">
+      <h3>Final Delivery</h3>
+      <p>Your goods arrive intact, on time, and in premium condition.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <h4>Do you handle international shipping?</h4>
+    <p>Yes. We manage both local and international logistics including exports.</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Who can use your services?</h4>
+    <p>Farmers, agro-exporters, manufacturers, and businesses of all sizes.</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Do you assist with documentation?</h4>
+    <p>Absolutely. Documentation and compliance are core to our service.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div>
+      <h3>Audu Joel Limited</h3>
+      <p>Reliable logistics solutions for local and global delivery.</p>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>Email: <a href="mailto:info@audujoellimited.com">info@audujoellimited.com</a></p>
+      <p>Phone: +234 XXX XXX XXXX</p>
+    </div>
+
+    <div>
+      <h4>Legal</h4>
+      <p><a href="terms.html">Terms of Service</a></p>
+      <p><a href="privacy.html">Privacy Policy</a></p>
+    </div>
+
+    <div>
+      <h4>Social</h4>
+      <p>LinkedIn</p>
+      <p>Instagram</p>
+      <p>Twitter / X</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Audu Joel Limited. All rights reserved.
+  </div>
+</footer>
+
+<!-- SCROLL REVEAL SCRIPT -->
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+
+  function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+    const elementVisible = 150;
+
+    reveals.forEach((element) => {
+      const elementTop = element.getBoundingClientRect().top;
+
+      if (elementTop < windowHeight - elementVisible) {
+        element.classList.add("active");
+      }
+    });
+  }
+
+  // Check on page load and scroll
+  window.addEventListener("DOMContentLoaded", revealOnScroll);
+  window.addEventListener("scroll", revealOnScroll);
+  window.addEventListener("resize", revealOnScroll);
+</script>
+
+</body>
+</html>
