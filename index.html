@@ -378,6 +378,36 @@
   </div>
 </section>
 
+<!-- APP FEATURES - Original -->
+<section id="app-features">
+  <h2>Experience Seamless Logistics with Our App</h2>
+  <p>
+    Get instant access to our full suite of logistics services through our user-friendly platform. 
+    Track shipments, manage orders, and access real-time updates—all in one place.
+  </p>
+  <div class="steps" style="margin-top: 3rem;">
+    <div class="step glass">
+      <h3>📱 Easy Order Placement</h3>
+      <p>Place orders in minutes with our intuitive interface. Upload shipment details and get instant quotes.</p>
+    </div>
+    <div class="step glass">
+      <h3>📍 Real-Time Tracking</h3>
+      <p>Monitor your shipments from pickup to delivery with live tracking updates and notifications.</p>
+    </div>
+    <div class="step glass">
+      <h3>📄 Document Management</h3>
+      <p>Upload, manage, and access all your shipping documents securely in one centralized location.</p>
+    </div>
+    <div class="step glass">
+      <h3>💬 Direct Communication</h3>
+      <p>Connect directly with our logistics team for support, updates, and inquiries.</p>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 3rem;">
+    <a href="https://audujoel.xyz" class="btn-primary" target="_blank" rel="noopener noreferrer">Get Started on Our App</a>
+  </div>
+</section>
+
 <!-- STORY / CROPS -->
 <section>
   <h2>From Crops to Global Markets</h2>
@@ -413,17 +443,46 @@
   </div>
 </section>
 
-<!-- APP FEATURES -->
-<section id="app-features">
+<!-- APP FEATURES - Advanced -->
+<section id="app-advanced">
   <h2>Manage Everything from Your Dashboard</h2>
   <p>
     Take control of your logistics operations with our powerful platform. Streamline your workflow, 
     reduce paperwork, and stay informed every step of the way.
   </p>
+  
+  <!-- Pricing Calculator -->
+  <div class="calculator-container glass" style="max-width: 800px; margin: 3rem auto; padding: 2.5rem;">
+    <h3 style="margin-bottom: 1.5rem; text-align: center;">💰 Instant Pricing Calculator</h3>
+    <div style="display: grid; gap: 1.5rem;">
+      <div>
+        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Weight (kg)</label>
+        <input type="number" id="calc-weight" min="1" value="100" style="width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.1); color: #f9fafb; font-size: 1rem;">
+      </div>
+      <div>
+        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Distance (km)</label>
+        <input type="number" id="calc-distance" min="1" value="500" style="width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.1); color: #f9fafb; font-size: 1rem;">
+      </div>
+      <div>
+        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Service Type</label>
+        <select id="calc-service" style="width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.1); color: #f9fafb; font-size: 1rem;">
+          <option value="standard">Standard Delivery</option>
+          <option value="express">Express Delivery</option>
+          <option value="international">International Shipping</option>
+        </select>
+      </div>
+      <button onclick="calculatePrice()" class="btn-primary" style="width: 100%; margin-top: 1rem;">Calculate Price</button>
+      <div id="calc-result" style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 8px; text-align: center; display: none;">
+        <div style="font-size: 2rem; font-weight: 700; color: #22c55e; margin-bottom: 0.5rem;" id="calc-price">₦0</div>
+        <div style="color: #d1d5db; font-size: 0.9rem;" id="calc-breakdown"></div>
+      </div>
+    </div>
+  </div>
+
   <div class="steps" style="margin-top: 3rem;">
     <div class="step glass">
-      <h3>💰 Instant Pricing Calculator</h3>
-      <p>Get accurate shipping quotes instantly based on destination, weight, and delivery options. No waiting, no surprises.</p>
+      <h3>📊 Analytics & Insights</h3>
+      <p>Track your shipping patterns, costs, and performance metrics with detailed analytics and reporting tools.</p>
     </div>
     <div class="step glass">
       <h3>📊 Analytics & Insights</h3>
@@ -505,7 +564,7 @@
 
     <div>
       <h4>Contact</h4>
-      <p>Email: <a href="mailto:info@audujoellimited.com">info@audujoellimited.com</a></p>
+      <p>Email: <a href="mailto:info@audujoel.xyz">info@audujoellimited.com</a></p>
       <p>Phone: +234 XXX XXX XXXX</p>
     </div>
 
@@ -527,6 +586,67 @@
     © 2026 Audu Joel Limited. All rights reserved.
   </div>
 </footer>
+
+<!-- PRICING CALCULATOR SCRIPT -->
+<script>
+  function calculatePrice() {
+    const weight = parseFloat(document.getElementById('calc-weight').value) || 0;
+    const distance = parseFloat(document.getElementById('calc-distance').value) || 0;
+    const serviceType = document.getElementById('calc-service').value;
+    
+    // Base rates (you can adjust these)
+    const baseRatePerKg = 150; // ₦150 per kg
+    const baseRatePerKm = 2; // ₦2 per km
+    const serviceMultipliers = {
+      standard: 1.0,
+      express: 1.5,
+      international: 2.5
+    };
+    
+    // Calculate base price
+    let basePrice = (weight * baseRatePerKg) + (distance * baseRatePerKm);
+    
+    // Apply service multiplier
+    const multiplier = serviceMultipliers[serviceType] || 1.0;
+    let finalPrice = basePrice * multiplier;
+    
+    // Add handling fee
+    const handlingFee = 5000;
+    finalPrice += handlingFee;
+    
+    // Format and display
+    const formattedPrice = new Intl.NumberFormat('en-NG', {
+      style: 'currency',
+      currency: 'NGN',
+      minimumFractionDigits: 0
+    }).format(finalPrice);
+    
+    const serviceNames = {
+      standard: 'Standard Delivery',
+      express: 'Express Delivery',
+      international: 'International Shipping'
+    };
+    
+    document.getElementById('calc-price').textContent = formattedPrice;
+    document.getElementById('calc-breakdown').innerHTML = `
+      ${serviceNames[serviceType]} • ${weight}kg • ${distance}km<br>
+      <small style="color: #9ca3af;">Includes handling and documentation</small>
+    `;
+    document.getElementById('calc-result').style.display = 'block';
+  }
+  
+  // Calculate on input change
+  document.addEventListener('DOMContentLoaded', function() {
+    const inputs = ['calc-weight', 'calc-distance', 'calc-service'];
+    inputs.forEach(id => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.addEventListener('change', calculatePrice);
+        element.addEventListener('input', calculatePrice);
+      }
+    });
+  });
+</script>
 
 <!-- SCROLL REVEAL SCRIPT -->
 <script>
