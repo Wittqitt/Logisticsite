@@ -122,15 +122,79 @@
       display: flex;
       align-items: center;
       padding-top: 80px;
+      position: relative;
+      background-image: url('assets/images/cover.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(12, 15, 20, 0.85) 0%, rgba(17, 24, 39, 0.75) 100%);
+      z-index: 1;
     }
 
     .hero-content {
       max-width: 900px;
+      position: relative;
+      z-index: 2;
     }
 
     .hero span {
       color: #22c55e;
       font-weight: 600;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #22c55e;
+      color: #0c0f14;
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      border: 2px solid #22c55e;
+    }
+
+    .btn-primary:hover {
+      background: #16a34a;
+      border-color: #16a34a;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+      color: #0c0f14;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #f9fafb;
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-2px);
+      color: #f9fafb;
     }
 
     /* Scroll Images */
@@ -276,6 +340,15 @@
       section {
         padding: 4rem 5%;
       }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -290,6 +363,7 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="https://audujoel.xyz" target="_blank" rel="noopener noreferrer" style="color: #22c55e; font-weight: 600;">📱 Order Now</a></li>
   </ul>
 </nav>
 
@@ -301,6 +375,36 @@
       At <strong>Audu Joel Limited</strong>, we understand that moving your products requires more than transportation.
       It requires trust, speed, and a team that values every shipment.
     </p>
+  </div>
+</section>
+
+<!-- APP FEATURES -->
+<section id="app-features">
+  <h2>Experience Seamless Logistics with Our App</h2>
+  <p>
+    Get instant access to our full suite of logistics services through our user-friendly platform. 
+    Track shipments, manage orders, and access real-time updates—all in one place.
+  </p>
+  <div class="steps" style="margin-top: 3rem;">
+    <div class="step glass">
+      <h3>📱 Easy Order Placement</h3>
+      <p>Place orders in minutes with our intuitive interface. Upload shipment details and get instant quotes.</p>
+    </div>
+    <div class="step glass">
+      <h3>📍 Real-Time Tracking</h3>
+      <p>Monitor your shipments from pickup to delivery with live tracking updates and notifications.</p>
+    </div>
+    <div class="step glass">
+      <h3>📄 Document Management</h3>
+      <p>Upload, manage, and access all your shipping documents securely in one centralized location.</p>
+    </div>
+    <div class="step glass">
+      <h3>💬 Direct Communication</h3>
+      <p>Connect directly with our logistics team for support, updates, and inquiries.</p>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 3rem;">
+    <a href="https://audujoel.xyz" class="btn-primary" target="_blank" rel="noopener noreferrer">Get Started on Our App</a>
   </div>
 </section>
 
@@ -336,6 +440,36 @@
       </div>
       <p>Secure storage and documentation for smooth global clearance.</p>
     </div>
+  </div>
+</section>
+
+<!-- APP FEATURES -->
+<section id="app-features">
+  <h2>Experience Seamless Logistics with Our App</h2>
+  <p>
+    Get instant access to our full suite of logistics services through our user-friendly platform. 
+    Track shipments, manage orders, and access real-time updates—all in one place.
+  </p>
+  <div class="steps" style="margin-top: 3rem;">
+    <div class="step glass">
+      <h3>📱 Easy Order Placement</h3>
+      <p>Place orders in minutes with our intuitive interface. Upload shipment details and get instant quotes.</p>
+    </div>
+    <div class="step glass">
+      <h3>📍 Real-Time Tracking</h3>
+      <p>Monitor your shipments from pickup to delivery with live tracking updates and notifications.</p>
+    </div>
+    <div class="step glass">
+      <h3>📄 Document Management</h3>
+      <p>Upload, manage, and access all your shipping documents securely in one centralized location.</p>
+    </div>
+    <div class="step glass">
+      <h3>💬 Direct Communication</h3>
+      <p>Connect directly with our logistics team for support, updates, and inquiries.</p>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 3rem;">
+    <a href="https://audujoel.xyz" class="btn-primary" target="_blank" rel="noopener noreferrer">Get Started on Our App</a>
   </div>
 </section>
 
@@ -412,10 +546,10 @@
     </div>
 
     <div>
-      <h4>Social</h4>
-      <p>LinkedIn</p>
-      <p>Instagram</p>
-      <p>Twitter / X</p>
+      <h4>Order & App</h4>
+      <p><a href="https://audujoel.xyz" target="_blank" rel="noopener noreferrer" style="color: #22c55e; font-weight: 600;">📱 Place Order</a></p>
+      <p><a href="https://audujoel.xyz" target="_blank" rel="noopener noreferrer">Access Our App</a></p>
+      <p><a href="https://audujoel.xyz" target="_blank" rel="noopener noreferrer">Track Shipment</a></p>
     </div>
   </div>
 
